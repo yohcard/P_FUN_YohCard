@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "tR7PVGQxMklitZBrPzS7R2c+h+p8sR0g86tfEypD66zwtLNIXItqZCJuphwuEz5bStoKdemI9lZr1alCSU+mXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\app\\P-Fun-YohCardis\\P-Fun-YohCardis\\P-Fun-YohCardis.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\opentk\\3.1.0\\opentk.3.1.0.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\opentk.glcontrol\\3.1.0\\opentk.glcontrol.3.1.0.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\scottplot\\5.0.38\\scottplot.5.0.38.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\scottplot.winforms\\5.0.38\\scottplot.winforms.5.0.38.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp\\2.88.8\\skiasharp.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.8\\skiasharp.nativeassets.linux.nodependencies.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.8\\skiasharp.nativeassets.macos.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.8\\skiasharp.nativeassets.win32.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.8\\skiasharp.views.desktop.common.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\skiasharp.views.windowsforms\\2.88.8\\skiasharp.views.windowsforms.2.88.8.nupkg.sha512",
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'OpenTK 3.1.0' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows7.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "libraryId": "OpenTK",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'OpenTK.GLControl 3.1.0' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows7.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "libraryId": "OpenTK.GLControl",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}
