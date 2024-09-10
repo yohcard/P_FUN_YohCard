@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P-Fun-YohCardis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eb7696fd17b1f191d577245cabb6a08f2671b9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ba81c812db66cbbacdd9677e4af334c8d8f514a")]
 [assembly: System.Reflection.AssemblyProductAttribute("P-Fun-YohCardis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P-Fun-YohCardis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
