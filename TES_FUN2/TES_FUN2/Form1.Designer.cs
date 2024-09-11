@@ -34,16 +34,16 @@
             // formsPlot1
             // 
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(0, 0);
+            formsPlot1.Location = new Point(94, 44);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(800, 449);
+            formsPlot1.Size = new Size(618, 356);
             formsPlot1.TabIndex = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(820, 469);
             Controls.Add(formsPlot1);
             Name = "Form1";
             Text = "Form1";

@@ -1,6 +1,7 @@
 using ScottPlot;
-using NPOI.XSSF.UserModel; // Pour lire le fichier Excel
+using NPOI.XSSF.UserModel; 
 using System.IO;
+using NPOI.SS.Formula.Functions;
 
 namespace TES_FUN2
 {
@@ -30,6 +31,7 @@ namespace TES_FUN2
 
 
             // Fonction pour lire les données à partir d'un fichier Excel
+            /*
             void ReadExcelData(string filePath, Dictionary<DateTime, double> data)
             {
                 using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
@@ -60,8 +62,38 @@ namespace TES_FUN2
                         }
                     }
                 }
+            }*/
+
+            //version linq
+            void ReadExcelData(string filePath, Dictionary<DateTime, double> data)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    var workbook = new XSSFWorkbook(stream);
+                    var sheet = workbook.GetSheetAt(0);
+
+                    var rows = Enumerable.Range(1, sheet.LastRowNum)
+                                         .Select(i => sheet.GetRow(i))
+                                         .Where(row => row != null)
+                                         .Select(row => new
+                                         {
+                                             DateCell = row.GetCell(1),
+                                             PriceCell = row.GetCell(5)
+                                         })
+                                         .Where(cells => cells.DateCell != null && cells.PriceCell != null)
+                                         .Select(cells => new
+                                         {
+                                             Date = Convert.ToDateTime(cells.DateCell.DateCellValue),
+                                             Price = cells.PriceCell.CellType == NPOI.SS.UserModel.CellType.Numeric ? cells.PriceCell.NumericCellValue : 0
+                                         })
+                                         .Where(item => item.Date != DateTime.MinValue && !data.ContainsKey(item.Date));
+
+                    foreach (var row in rows)
+                    {
+                        data.Add(row.Date, row.Price);
+                    }
+                }
             }
-            
 
             // Lecture des données Bitcoin
             ReadExcelData(btcFilePath, btcData);
@@ -71,8 +103,7 @@ namespace TES_FUN2
 
             // Lecture des données etherum
             ReadExcelData(ethFilePath, ethData);
-            
-
+           
             // Préparation des données pour ScottPlot (BTC)
             DateTime[] btcX = btcData.Keys.ToArray();
             double[] btcY = btcData.Values.ToArray();
@@ -81,33 +112,33 @@ namespace TES_FUN2
             DateTime[] solX = solData.Keys.ToArray();
             double[] solY = solData.Values.ToArray();
 
-            // Préparation des données pour ScottPlot (Solana)
+            // Préparation des données pour ScottPlot (etherum)
             DateTime[] etlX = ethData.Keys.ToArray();
             double[] ethY = ethData.Values.ToArray();
 
-            //gestion des labels du graphique
-            formsPlot1.Plot.XLabel("Date");
-            formsPlot1.Plot.YLabel("Prix");
-
-
             // Tracé du graphique Bitcoin
-            formsPlot1.Plot.Add.Scatter(btcX, btcY, color: ScottPlot.Color.FromHex("C43E1C"));
+            var btc = formsPlot1.Plot.Add.Scatter(btcX, btcY, color: ScottPlot.Color.FromHex("C43E1C"));
+            btc.LegendText = "btc";
 
             // Tracé du graphique Solana
-            formsPlot1.Plot.Add.Scatter(solX, solY, color: ScottPlot.Color.FromHex("1C72C4"));
+            var sol = formsPlot1.Plot.Add.Scatter(solX, solY, color: ScottPlot.Color.FromHex("1C72C4"));
+            sol.LegendText = "sol";
 
             // Tracé du graphique Solana
-            formsPlot1.Plot.Add.Scatter(etlX, ethY, color: ScottPlot.Color.FromHex("000000"));
+            var eth = formsPlot1.Plot.Add.Scatter(etlX, ethY, color: ScottPlot.Color.FromHex("000000"));
+            eth.LegendText = "eth";
 
             // Affichage des ticks pour les dates
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
 
-            // Affichage de la légende
-            formsPlot1.Plot.ShowLegend();
+            //gestion des labels du graphique
+            formsPlot1.Plot.YLabel("Prix");
+            formsPlot1.Plot.Title("Plot that line !");
+            formsPlot1.Plot.XLabel("Date");
 
+            
             // Rafraîchissement du graphique
             formsPlot1.Refresh();
         }
-
     }
 }
