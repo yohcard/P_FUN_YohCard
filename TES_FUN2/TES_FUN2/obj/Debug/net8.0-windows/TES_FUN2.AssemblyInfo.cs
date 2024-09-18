@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TES_FUN2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad629887dd2441f294db8f193e405666cee30c03")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ae0de1b0d8f0c338d2c8590ffe2ad806a7170d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TES_FUN2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TES_FUN2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
