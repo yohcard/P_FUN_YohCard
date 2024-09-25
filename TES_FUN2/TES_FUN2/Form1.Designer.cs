@@ -41,6 +41,7 @@
             formsPlot1.Name = "formsPlot1";
             formsPlot1.Size = new Size(618, 356);
             formsPlot1.TabIndex = 0;
+            formsPlot1.Load += formsPlot1_Load;
             // 
             // dateTimePicker1
             // 
