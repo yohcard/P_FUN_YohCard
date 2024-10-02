@@ -2,11 +2,18 @@ using ScottPlot;
 using NPOI.XSSF.UserModel; 
 using System.IO;
 using NPOI.SS.Formula.Functions;
+using ScottPlot.WinForms;
 
 namespace TES_FUN2
 {
     public partial class Form1 : Form
     {
+        public FormsPlot FormsPlot
+        {
+            get { return formsPlot1; }
+            set { formsPlot1=value; }
+        }
+
         // Dictionnaires pour stocker les données
         // Dictionaries to store data
         Dictionary<string, Dictionary<DateTime, double>> currencyData = new Dictionary<string, Dictionary<DateTime, double>>
@@ -52,7 +59,7 @@ namespace TES_FUN2
             PlotData(currencyData);
         }
 
-        private void PlotData(Dictionary<string, Dictionary<DateTime, double>> data)
+        public void PlotData(Dictionary<string, Dictionary<DateTime, double>> data)
         {
             formsPlot1.Reset();
 
@@ -80,7 +87,7 @@ namespace TES_FUN2
             // Gestion des labels du graphique
             // Management of chart labels
             formsPlot1.Plot.YLabel("Prix de fermeture");
-            formsPlot1.Plot.Title("Plot that line !");
+            formsPlot1.Plot.Title("FormsPlot that line !");
             formsPlot1.Plot.XLabel("Date");
 
             // Rafraîchissement du graphique
