@@ -14,34 +14,32 @@ namespace TES_FUN2
             set { formsPlot1=value; }
         }
 
-        // Dictionnaires pour stocker les données
-        // Dictionaries to store data
-        Dictionary<string, Dictionary<DateTime, double>> currencyData = new Dictionary<string, Dictionary<DateTime, double>>
-        {
-            { "btc", new Dictionary<DateTime, double>() },
-            { "sol", new Dictionary<DateTime, double>() },
-            { "eth", new Dictionary<DateTime, double>() }
-        };
+        // Liste des devises
+        // Currencies list
+        string[] currencies;
 
-        // Chemins des fichiers Excel pour chaque monnaie
-        // Excel file paths for each currency
-        Dictionary<string, string> filePaths = new Dictionary<string, string>
-        {
-            { "btc", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bitcoin_2019-09-13_2024-09-11.xlsx") },
-            { "sol", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"solana_2019-09-13_2024-09-11.xlsx") },
-            { "eth", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ethereum_2019-09-13_2024-09-11.xlsx") }
-        };
+        // Dictionnaires pour stocker les données et les chemins de fichiers
+        // Dictionnary wich stock curenncies data and files path
+        Dictionary<string, Dictionary<DateTime, double>> currencyData;
+        Dictionary<string, string> filePaths;
 
         public Form1()
         {
             InitializeComponent();
+
+            // Initialisation des monnaies
+            // Initialize currencies
+            currencies = new[] { "btc", "sol", "eth" };
+
+            // Initialisation des données de devises et des chemins de fichiers
+            // Initialize currencies data and files path
+            currencyData = currencies.ToDictionary(c => c, c => new Dictionary<DateTime, double>());
+            filePaths = currencies.ToDictionary(c => c, c => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{c}_2019-09-13_2024-09-11.xlsx"));
         }
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            
             CreateChart();
         }
 
@@ -67,9 +65,9 @@ namespace TES_FUN2
             // Set colors for each currency
             var colors = new Dictionary<string, string>
             {
-                { "btc", "C43E1C" },
-                { "sol", "1C72C4" },
-                { "eth", "000000" }
+                { currencies[0], "C43E1C" },
+                { currencies[1], "1C72C4" },
+                { currencies[2], "000000" }
             };
 
             foreach (var currency in data.Keys)
@@ -87,7 +85,7 @@ namespace TES_FUN2
             // Gestion des labels du graphique
             // Management of chart labels
             formsPlot1.Plot.YLabel("Prix de fermeture");
-            formsPlot1.Plot.Title("FormsPlot that line !");
+            formsPlot1.Plot.Title("Plot that line !");
             formsPlot1.Plot.XLabel("Date");
 
             // Rafraîchissement du graphique
