@@ -32,20 +32,22 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             DateFilterBtn = new Button();
+            resetBtn = new Button();
             SuspendLayout();
             // 
             // formsPlot1
             // 
+            formsPlot1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(100, 101);
+            formsPlot1.Location = new Point(12, 99);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(618, 356);
+            formsPlot1.Size = new Size(796, 280);
             formsPlot1.TabIndex = 0;
             formsPlot1.Load += formsPlot1_Load;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(504, 12);
+            dateTimePicker1.Location = new Point(12, 12);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 1;
@@ -53,7 +55,7 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(504, 41);
+            dateTimePicker2.Location = new Point(218, 12);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 2;
@@ -61,7 +63,7 @@
             // 
             // DateFilterBtn
             // 
-            DateFilterBtn.Location = new Point(504, 70);
+            DateFilterBtn.Location = new Point(424, 12);
             DateFilterBtn.Name = "DateFilterBtn";
             DateFilterBtn.Size = new Size(200, 23);
             DateFilterBtn.TabIndex = 3;
@@ -69,11 +71,22 @@
             DateFilterBtn.UseVisualStyleBackColor = true;
             DateFilterBtn.Click += DateFilterBtn_Click;
             // 
+            // resetBtn
+            // 
+            resetBtn.Location = new Point(630, 12);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(178, 23);
+            resetBtn.TabIndex = 4;
+            resetBtn.Text = "reset";
+            resetBtn.UseVisualStyleBackColor = true;
+            resetBtn.Click += resetBtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 469);
+            Controls.Add(resetBtn);
             Controls.Add(DateFilterBtn);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
@@ -90,5 +103,6 @@
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Button DateFilterBtn;
+        private Button resetBtn;
     }
 }

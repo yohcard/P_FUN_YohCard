@@ -11,12 +11,14 @@ namespace TES_FUN2
         public FormsPlot FormsPlot
         {
             get { return formsPlot1; }
-            set { formsPlot1=value; }
+            set { formsPlot1 = value; }
         }
 
         // Liste des devises
         // Currencies list
         string[] currencies;
+
+
 
         // Dictionnaires pour stocker les données et les chemins de fichiers
         // Dictionnary wich stock curenncies data and files path
@@ -31,15 +33,17 @@ namespace TES_FUN2
             // Initialize currencies
             currencies = new[] { "btc", "sol", "eth" };
 
+
+
             // Initialisation des données de devises et des chemins de fichiers
             // Initialize currencies data and files path
             currencyData = currencies.ToDictionary(c => c, c => new Dictionary<DateTime, double>());
             filePaths = currencies.ToDictionary(c => c, c => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{c}_2019-09-13_2024-09-11.xlsx"));
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             CreateChart();
         }
 
@@ -49,7 +53,9 @@ namespace TES_FUN2
             // Reading data
             foreach (var currency in currencyData.Keys)
             {
+
                 ReadExcelData(filePaths[currency], currencyData[currency]);
+
             }
 
             // Afficher le graphique complet au chargement
@@ -72,19 +78,28 @@ namespace TES_FUN2
 
             foreach (var currency in data.Keys)
             {
-                DateTime[] xValues = data[currency].Keys.ToArray();
-                double[] yValues = data[currency].Values.ToArray();
-                var scatter = formsPlot1.Plot.Add.Scatter(xValues, yValues, color: ScottPlot.Color.FromHex(colors[currency]));
-                scatter.LegendText = currency;
+                if (data[currency].Count > 2)
+                {
+                    var result =AvgMinMaxValue(data[currency]);
+                    DateTime[] xValues = data[currency].Keys.ToArray();
+                    double[] yValues = data[currency].Values.ToArray();
+                    var scatter = formsPlot1.Plot.Add.Scatter(xValues, yValues, color: ScottPlot.Color.FromHex(colors[currency]));
+                    scatter.LegendText = currency + ", avg : " + result.Item1 + ",  min : " + result.Item2 + ",  max : " + result.Item3;
+                }
+
+                
+
             }
 
             // Affichage des ticks pour les dates
             // Ticks display for dates
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
+            formsPlot1.Plot.ShowLegend(ScottPlot.Edge.Bottom);
+           
 
             // Gestion des labels du graphique
             // Management of chart labels
-            formsPlot1.Plot.YLabel("Prix de fermeture");
+            formsPlot1.Plot.YLabel("Prix de fermeture en USD");
             formsPlot1.Plot.Title("Plot that line !");
             formsPlot1.Plot.XLabel("Date");
 
@@ -127,6 +142,20 @@ namespace TES_FUN2
             }
         }
 
+
+
+        public (double, double, double) AvgMinMaxValue(Dictionary<DateTime, double> data)
+        {
+
+
+            var minValue = Math.Round(data.Values.Min(), 2);
+            var maxValue = Math.Round(data.Values.Max(), 2);
+            var avgValue = Math.Round(data.Values.Average(), 2);
+
+
+            return (minValue, maxValue, avgValue);
+        }
+
         private void DateFilterBtn_Click(object sender, EventArgs e)
         {
             // Récupérer les dates choisies dans les DateTimePickers
@@ -138,7 +167,8 @@ namespace TES_FUN2
             // For each currency, creation of a dictionary containing only the selected data
             var filteredData = currencyData.ToDictionary(
                 currency => currency.Key,
-                currency => currency.Value.Where(d => d.Key >= startDate && d.Key <= endDate).ToDictionary(d => d.Key, d => d.Value)
+                currency => currency.Value.Where(d => d.Key >= startDate && d.Key <= endDate)
+                .ToDictionary(d => d.Key, d => d.Value)
             );
 
             // Utilisation de PlotData pour exposer les données filtrées
@@ -159,6 +189,11 @@ namespace TES_FUN2
         private void formsPlot1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            formsPlot1.Reset();
         }
     }
 }
