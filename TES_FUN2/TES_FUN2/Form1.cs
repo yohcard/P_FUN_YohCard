@@ -80,14 +80,12 @@ namespace TES_FUN2
             {
                 if (data[currency].Count > 2)
                 {
-                    var result =AvgMinMaxValue(data[currency]);
+                    var result = AvgMinMaxValue(data[currency]);
                     DateTime[] xValues = data[currency].Keys.ToArray();
                     double[] yValues = data[currency].Values.ToArray();
                     var scatter = formsPlot1.Plot.Add.Scatter(xValues, yValues, color: ScottPlot.Color.FromHex(colors[currency]));
                     scatter.LegendText = currency + ", avg : " + result.Item1 + ",  min : " + result.Item2 + ",  max : " + result.Item3;
                 }
-
-                
 
             }
 
@@ -95,7 +93,7 @@ namespace TES_FUN2
             // Ticks display for dates
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
             formsPlot1.Plot.ShowLegend(ScottPlot.Edge.Bottom);
-           
+
 
             // Gestion des labels du graphique
             // Management of chart labels
@@ -147,11 +145,9 @@ namespace TES_FUN2
         public (double, double, double) AvgMinMaxValue(Dictionary<DateTime, double> data)
         {
 
-
             var minValue = Math.Round(data.Values.Min(), 2);
             var maxValue = Math.Round(data.Values.Max(), 2);
             var avgValue = Math.Round(data.Values.Average(), 2);
-
 
             return (minValue, maxValue, avgValue);
         }
@@ -171,40 +167,45 @@ namespace TES_FUN2
                 .ToDictionary(d => d.Key, d => d.Value)
             );
 
-            // Utilisation de PlotData pour exposer les données filtrées
-            // Using PlotData to expose filtered data
-            PlotData(filteredData);
-        }
+            if (filteredData != null)
+            {
+                {
+                    string NoDataforThisPeriod = "il n'y pas de données pour la periode choisie.";
+                    MessageBox.Show(NoDataforThisPeriod);
+                }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
+                // Utilisation de PlotData pour exposer les données filtrées
+                // Using PlotData to expose filtered data
 
-        }
+            }
+            else
+            {
+                PlotData(filteredData);
+            }
+            }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
+            private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+            {
 
-        }
+            }
 
-        private void formsPlot1_Load(object sender, EventArgs e)
-        {
+            private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+            {
 
-        }
+            }
 
-        private void resetBtn_Click(object sender, EventArgs e)
-        {
-            formsPlot1.Plot.Clear();
-            CreateChart();
+            private void formsPlot1_Load(object sender, EventArgs e)
+            {
+
+            }
+
+            private void resetBtn_Click(object sender, EventArgs e)
+            {
+                formsPlot1.Plot.Clear();
+                CreateChart();
+            }
         }
     }
-}
-
-
-
-
-
-
-
 
 /*
             void ReadExcelData(string filePath, Dictionary<DateTime, double> data)
