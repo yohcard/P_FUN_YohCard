@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {}
+    "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {
+    "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj",
+        "projectUniqueName": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj",
         "projectName": "TES_FUN2",
-        "projectPath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj",
-        "packagesPath": "C:\\Users\\ps16gnt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\obj\\",
+        "projectPath": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj",
+        "packagesPath": "C:\\Users\\cardi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ps16gnt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cardi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -79,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
