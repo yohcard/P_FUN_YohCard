@@ -73,7 +73,7 @@
             // 
             // resetBtn
             // 
-            resetBtn.Location = new Point(630, 12);
+            resetBtn.Location = new Point(630, 14);
             resetBtn.Name = "resetBtn";
             resetBtn.Size = new Size(178, 23);
             resetBtn.TabIndex = 4;

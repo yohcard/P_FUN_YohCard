@@ -17,7 +17,7 @@ namespace TES_FUN2
         // Liste des devises
         // Currencies list
         string[] currencies;
-
+        bool yoyo;
 
 
         // Dictionnaires pour stocker les données et les chemins de fichiers
@@ -167,7 +167,14 @@ namespace TES_FUN2
                 .ToDictionary(d => d.Key, d => d.Value)
             );
 
-            if (filteredData != null)
+            foreach (var row in filteredData.Values)
+            {
+
+                yoyo = row.Count == 0;
+            }
+            
+            
+            if (yoyo == true)
             {
                 {
                     string NoDataforThisPeriod = "il n'y pas de données pour la periode choisie.";
