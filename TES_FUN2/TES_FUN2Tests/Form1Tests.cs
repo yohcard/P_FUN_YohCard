@@ -52,7 +52,8 @@ namespace TES_FUN2.Tests
             // Assert
             Assert.AreEqual(2, plot.FormsPlot.Plot.GetPlottables().Count(), "Le nombre de tracés ajoutés est incorrect.");
         }
-
+        //Verifie si le titre du tableau est bien implementer
+        //Check if the right plot title is implemented
         [TestMethod()]
         public void PlotDataTest3()
         {
@@ -73,7 +74,8 @@ namespace TES_FUN2.Tests
             Assert.AreEqual("Plot that line !", plot.FormsPlot.Plot.Axes.Title.Label.Text); // Vérifie que le titre est correct
 
         }
-
+        //verifie que la methode AvgMinMaxValue recupère bien la valeur min et max et quelle calcule la moyenne correctement.
+        //check if the fonction AvgMinMaxValue recover the min and the max and calculated the average correctly
         [TestMethod()]
         public void AvgMinMaxValueTest()
         {
