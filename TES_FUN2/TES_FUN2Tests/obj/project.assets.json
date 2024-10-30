@@ -2509,23 +2509,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cardi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ps16gnt\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\TES_FUN2Tests.csproj",
+      "projectUniqueName": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\TES_FUN2Tests.csproj",
       "projectName": "TES_FUN2Tests",
-      "projectPath": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\TES_FUN2Tests.csproj",
-      "packagesPath": "C:\\Users\\cardi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\obj\\",
+      "projectPath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\TES_FUN2Tests.csproj",
+      "packagesPath": "C:\\Users\\ps16gnt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\cardi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ps16gnt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2541,8 +2543,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {
-              "projectPath": "C:\\Users\\cardi\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj"
+            "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj": {
+              "projectPath": "C:\\Users\\ps16gnt\\Documents\\GitHub\\P_FUN_YohCard\\TES_FUN2\\TES_FUN2\\TES_FUN2.csproj"
             }
           }
         }
@@ -2595,7 +2597,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

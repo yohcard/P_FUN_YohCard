@@ -36,14 +36,14 @@ namespace TES_FUN2.Tests
         //Check the numbers of scatters compared to the dictionnary
         public void PlotDataTest2()
         {
-            //arrange
+            // Arrange
             var plot = new Form1();
             plot.FormsPlot = new FormsPlot();
 
             var data = new Dictionary<string, Dictionary<DateTime, double>>
             {
-                { "btc", new Dictionary<DateTime, double> { { DateTime.Now, 45000 }, { DateTime.Now.AddHours(-1), 45000 } } },
-                { "sol", new Dictionary<DateTime, double> { { DateTime.Now, 8000 }, { DateTime.Now.AddHours(-1), 10000 } } }
+                { "btc", new Dictionary<DateTime, double> { { DateTime.Now, 45000 }, { DateTime.Now.AddHours(-1), 45000 }, { DateTime.Now.AddHours(-2), 45500 } } },
+                { "sol", new Dictionary<DateTime, double> { { DateTime.Now, 8000 }, { DateTime.Now.AddHours(-1), 10000 }, { DateTime.Now.AddHours(-2), 9500 } } }
             };
 
             // Act
@@ -52,6 +52,7 @@ namespace TES_FUN2.Tests
             // Assert
             Assert.AreEqual(2, plot.FormsPlot.Plot.GetPlottables().Count(), "Le nombre de tracés ajoutés est incorrect.");
         }
+
         [TestMethod()]
         public void PlotDataTest3()
         {

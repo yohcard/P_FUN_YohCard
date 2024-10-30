@@ -3,6 +3,7 @@ using NPOI.XSSF.UserModel;
 using System.IO;
 using NPOI.SS.Formula.Functions;
 using ScottPlot.WinForms;
+using System.Data;
 
 namespace TES_FUN2
 {
@@ -17,7 +18,7 @@ namespace TES_FUN2
         // Liste des devises
         // Currencies list
         string[] currencies;
-        bool yoyo;
+        bool datatest;
 
 
         // Dictionnaires pour stocker les données et les chemins de fichiers
@@ -170,11 +171,11 @@ namespace TES_FUN2
             foreach (var row in filteredData.Values)
             {
 
-                yoyo = row.Count == 0;
+                datatest = row.Count == 0;
             }
             
             
-            if (yoyo == true)
+            if (datatest == true)
             {
                 {
                     string NoDataforThisPeriod = "il n'y pas de données pour la periode choisie.";
