@@ -18,6 +18,8 @@ namespace TES_FUN2
         // Liste des devises
         // Currencies list
         string[] currencies;
+
+        //Pour tester si des données sont disponible dans un laps de temps.
         bool datatest;
 
 
@@ -48,6 +50,10 @@ namespace TES_FUN2
             CreateChart();
         }
 
+
+        /// <summary>
+        /// Récuper les données du fichier excel de chaque monaie et les envoient dans la methode PlotData
+        /// </summary>
         private void CreateChart()
         {
             // Lecture des données
@@ -64,6 +70,11 @@ namespace TES_FUN2
             PlotData(currencyData);
         }
 
+
+        /// <summary>
+        /// Crée et affiche un graphique des données de prix des cryptomonnaies dans le temps
+        /// </summary>
+        /// <param name="data">Dictionnaire contenant la date et le prix pour chaque monnaie</param>
         public void PlotData(Dictionary<string, Dictionary<DateTime, double>> data)
         {
             formsPlot1.Reset();
@@ -107,6 +118,11 @@ namespace TES_FUN2
             formsPlot1.Refresh();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath">chemin vers le fichier excel qui doit etre lu</param>
+        /// <param name="data">Dictionnaire contenant la date et le prix pour chaque monnaie</param>
         // Récupère le prix de fermeture et la date de chaque ligne pour chaque fichier
         // Retrieves the closing price and date of each line for each file
         public void ReadExcelData(string filePath, Dictionary<DateTime, double> data)
@@ -131,18 +147,19 @@ namespace TES_FUN2
                                          Price = cells.PriceCell.CellType == NPOI.SS.UserModel.CellType.Numeric ? cells.PriceCell.NumericCellValue : 0
                                      })
                                      .Where(item => item.Date != DateTime.MinValue && !data.ContainsKey(item.Date));
-
-
-                //à refactoriser
-                foreach (var row in rows)
-                {
-                    data.Add(row.Date, row.Price);
-                }
+                                    foreach (var row in rows)
+                                    {
+                                        data.Add(row.Date, row.Price);
+                                    }
             }
         }
 
 
-
+        /// <summary>
+        /// recuper la valeur min, max et calcule la valeur moyenne de la monnaie
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>retourne la valeur min, max et moyenne de la monnaie</returns>
         public (double, double, double) AvgMinMaxValue(Dictionary<DateTime, double> data)
         {
 
@@ -153,6 +170,9 @@ namespace TES_FUN2
             return (minValue, maxValue, avgValue);
         }
 
+        /// <summary>
+        /// bouton filtre pour filtrer les données selon un laps de temps choisi.
+        /// </summary>
         private void DateFilterBtn_Click(object sender, EventArgs e)
         {
             // Récupérer les dates choisies dans les DateTimePickers
@@ -173,8 +193,6 @@ namespace TES_FUN2
 
                 datatest = row.Count == 0;
             }
-            
-            
             if (datatest == true)
             {
                 {
